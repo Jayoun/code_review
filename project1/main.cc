@@ -5,19 +5,19 @@
 using namespace std;
 
 template <typename T>
-void pushQueue(templatePriorityQueue<T>* Que, int data){
+void PushQueue(TemplatePriorityQueue<T>* Queue, int data){
 	cout << "[+] Integer "<< data <<" pushed in the Priority Queue." << endl;
-	Que->push(data);
+	Queue->Push(data);
 }
 
 template<typename T>
-void popQueue(templatePriorityQueue<T>* Que){
+void PopQueue(TemplatePriorityQueue<T>* Que){
 	cout << "[+] Integer "<< Que->top() << " will be poped from the Priority Queue." << endl;
-	Que->pop();
+	Que->Pop();
 }
 
 int main(int argc, char* argv[]){
-	templatePriorityQueue<int> priQueue;
+	TemplatePriorityQueue<int> priQueue;
 	int customNumber = 0;
 
 	//empty check
@@ -26,11 +26,11 @@ int main(int argc, char* argv[]){
 	}
 
 	// push
-	pushQueue(&priQueue,23);
-	pushQueue(&priQueue,598);
-	pushQueue(&priQueue,302);
+	PushQueue(&priQueue,23);
+	PushQueue(&priQueue,598);
+	PushQueue(&priQueue,302);
 
-	if( argc > 1 ){
+	if(argc > 1){
 		customNumber = atoi(argv[1]);
 		if( customNumber > -500 && customNumber < 2000 ){
 			pushQueue(&priQueue,customNumber);
@@ -53,8 +53,8 @@ int main(int argc, char* argv[]){
 	}
 
 	// pop twice
-	popQueue(&priQueue);
-	popQueue(&priQueue);
+	PopQueue(&priQueue);
+	PopQueue(&priQueue);
 
 	cout << "[+] Now, Top element of Priority Queue is " << priQueue.top() << endl;
 	
